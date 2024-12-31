@@ -101,8 +101,9 @@ def process_line(line):
 
     # Each item in line is 'Letter<col>' (e.g. 'Q0', 'I4')
     pieces = line.split(',')
-
+    piece_count = 0
     for item in pieces:
+        piece_count += 1
         shape_letter = item[0]
         left_str = item[1:]
         left = int(left_str)  # the left-most column for the piece
@@ -126,6 +127,8 @@ def process_line(line):
 
         # Clear any fully filled rows
         # breakpoint()
+        # if shape_letter == 'Q' and piece_count >= 149:
+        #     breakpoint()
         grid = clear_full_rows(grid)
         # breakpoint()
 

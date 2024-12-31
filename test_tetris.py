@@ -36,12 +36,14 @@ def test_multiple_squares():
     # so they should stack up to 2 in height.
     line = "Q0,Q2,Q4"
     assert process_line(line) == 2
+    
+def test_fill_grid():
+    # extend the first example to fill the grid and then clear it
+    line = "I0,I4," * 99 + "I0"
+    assert process_line(line) == 100
 
-def test_fill_one_row():
-    # A quick test to fill a single row with two I pieces (each 4 wide) and
-    # one Q square (2 wide) => 4+4+2 = 10 wide exactly.
-    # This should fill row 0 completely and clear it, ending up with height = 0.
-    line = "I0,I4,Q8"
-    # This is basically the same as example_1; we expect height=1 per example_1
-    # But let's confirm it remains consistent with the official example.
-    assert process_line(line) == 1
+def test_fill_grid_and_clear():
+    # extend the first example to fill the grid and then clear it
+    line = "I0,I4," * 100
+    line += "Q8," * 49 + "Q8"
+    assert process_line(line) == 0
