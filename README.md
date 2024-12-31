@@ -15,13 +15,13 @@ This is a simplified Tetris engine that simulates piece placement and row cleari
 
 You can run the engine in two ways:
 
-1. Using input redirection:
+### (1) Using input redirection
 
 ```bash
 python tetris.py < input.txt > output.txt
 ```
 
-2. Providing input file as argument:
+### (2) Providing input file as argument
 
 ```bash
 python tetris.py input.txt > output.txt
