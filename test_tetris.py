@@ -47,3 +47,8 @@ def test_fill_grid_and_clear():
     line = "I0,I4," * 100
     line += "Q8," * 49 + "Q8"
     assert process_line(line) == 0
+
+def test_over_hangs():
+    # test that overhangs are handled correctly
+    pillar = "I0,Q4,Q4,I6,S2,Z5"
+    assert process_line(pillar) == 4
