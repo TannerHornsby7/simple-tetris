@@ -13,21 +13,31 @@ This is a simplified Tetris engine that simulates piece placement and row cleari
 
 ## Usage
 
-```[bash]
-python3 main.py < input.txt > output.txt
+You can run the engine in two ways:
+
+1. Using input redirection:
+
+```bash
+python tetris.py < input.txt > output.txt
+```
+
+2. Providing input file as argument:
+
+```bash
+python tetris.py input.txt > output.txt
 ```
 
 ## Input Format
 
-The engine reads input from STDIN, where each line contains a comma-separated sequence of piece placements. Each piece is denoted by:
+The engine reads input from STDIN or a file, where each line contains a comma-separated sequence of piece placements. Each piece is denoted by:
 
 - A letter (Q, Z, S, T, I, L, or J) representing the piece shape
 - A digit (0-9) representing the leftmost column where the piece will be placed
 
 Example input:
 
-```[text]
-I0,J1,L2,O3,S4,T5,Z6
+```text
+Q0,I2,I6,I0,I6,I6,Q2,Q4
 ```
 
 ## Row Drop Physics

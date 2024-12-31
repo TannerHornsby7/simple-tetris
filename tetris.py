@@ -1,4 +1,5 @@
 import sys
+import os
 
 # Define the Tetris shapes in their fixed orientations.
 # For simplicity, we define each shape as a list of (x, y) offsets,
@@ -138,9 +139,25 @@ def process_line(line):
 
 def main():
     """
-    Read lines from stdin, process each, and print the stack height result.
+    Read lines from stdin or input file, process each, and print the stack height result.
+    Usage: 
+        python tetris.py < input.txt
+        python tetris.py input.txt
     """
-    for line in sys.stdin:
+
+    # If argument provided, use it as input file
+    if len(sys.argv) > 1:
+        input_file = sys.argv[1]
+        if not os.path.exists(input_file):
+            print(f"Error: Input file '{input_file}' not found", file=sys.stderr)
+            sys.exit(1)
+        with open(input_file, 'r') as f:
+            lines = f.readlines()
+    else:
+        # No argument provided, read from stdin
+        lines = sys.stdin.readlines()
+
+    for line in lines:
         line = line.strip()
         if not line:
             continue
